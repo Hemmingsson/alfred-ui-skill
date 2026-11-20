@@ -1,0 +1,4 @@
+interface:
+  display_name: "Alfred UI"
+  short_description: "Build Alfred 6 Alfred UI windows and wire them into workflows"
+  default_prompt: "Build an Alfred workflow with an Alfred UI window that "
