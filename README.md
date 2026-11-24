@@ -68,7 +68,3 @@ Not drawn: **templates** (a component defined once, reused with parameters) and 
 | [`scripts/check_ui.py`](skills/alfred-ui/scripts/check_ui.py) | The checker |
 | [`agents/openai.yaml`](skills/alfred-ui/agents/openai.yaml) | Codex metadata |
 | [`tools/wireframes.py`](tools/wireframes.py) | Draws the wireframes: `python3 tools/wireframes.py` |
-
-## License
-
-MIT. Alfred is a product of Running with Crayons Ltd; this project is not affiliated with it.
