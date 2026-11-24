@@ -27,34 +27,34 @@ The full schema is in [`references/`](skills/alfred-ui/references).
 
 Every container is a `view`; its `layout` places the children.
 
-| Wireframe | Layout |
-| --- | --- |
-| <img src="docs/wireframes/stack.svg" width="300" alt="stack layout"> | **`stack`**: children overlap and each fills the view; the first is at the bottom. A placeholder under a web page, or swapped views. |
-| <img src="docs/wireframes/border.svg" width="300" alt="border layout"> | **`border`**: `top`, `bottom`, `left`, `right` take what they need; `centre` gets the rest. The usual window frame. |
-| <img src="docs/wireframes/grid.svg" width="300" alt="grid layout"> | **`grid`**: `rows` × `cols` equal cells, filled row by row. |
-| <img src="docs/wireframes/inline.svg" width="300" alt="inline layout"> | **`inline`**: one after another, `horizontal` or `vertical`, each child at its own size. |
-| <img src="docs/wireframes/form.svg" width="300" alt="form layout"> | **`form`**: label, field pairs; `{}` leaves a cell blank. |
-| <img src="docs/wireframes/flex.svg" width="300" alt="flex layout"> | **`flex`**: a grid where each child sets its `col`, `row`, spans and weights. |
+<table>
+<tr><td><img src="docs/wireframes/stack.svg" width="300" alt="stack layout"></td><td><strong><code>stack</code></strong>: children overlap and each fills the view; the first is at the bottom. A placeholder under a web page, or swapped views.</td></tr>
+<tr><td><img src="docs/wireframes/border.svg" width="300" alt="border layout"></td><td><strong><code>border</code></strong>: <code>top</code>, <code>bottom</code>, <code>left</code>, <code>right</code> take what they need; <code>centre</code> gets the rest. The usual window frame.</td></tr>
+<tr><td><img src="docs/wireframes/grid.svg" width="300" alt="grid layout"></td><td><strong><code>grid</code></strong>: <code>rows</code> × <code>cols</code> equal cells, filled row by row.</td></tr>
+<tr><td><img src="docs/wireframes/inline.svg" width="300" alt="inline layout"></td><td><strong><code>inline</code></strong>: one after another, <code>horizontal</code> or <code>vertical</code>, each child at its own size.</td></tr>
+<tr><td><img src="docs/wireframes/form.svg" width="300" alt="form layout"></td><td><strong><code>form</code></strong>: label, field pairs; <code>{}</code> leaves a cell blank.</td></tr>
+<tr><td><img src="docs/wireframes/flex.svg" width="300" alt="flex layout"></td><td><strong><code>flex</code></strong>: a grid where each child sets its <code>col</code>, <code>row</code>, spans and weights.</td></tr>
+</table>
 
 ### Components
 
 **Events** are what a component reports, **functions** what you can tell it to do, **read** what `{value:id.property}` returns.
 
-| Wireframe | Component |
-| --- | --- |
-| <img src="docs/wireframes/view.svg" width="300" alt="view"> | **`view`**: a container with a layout, background, corner radius and padding. |
-| <img src="docs/wireframes/label.svg" width="300" alt="label"> | **`label`**: read-only text.<br>Read: `text` |
-| <img src="docs/wireframes/button.svg" width="300" alt="button"> | **`button`**: text, an image or SF Symbol, or both.<br>Events: `actioned`<br>Read: `text`, `image` |
-| <img src="docs/wireframes/checkbox.svg" width="300" alt="checkbox"> | **`checkbox`**: an on/off option.<br>Events: `changed`<br>Read: `checked`, `text` |
-| <img src="docs/wireframes/picker.svg" width="300" alt="picker"> | **`picker`**: one item from a popup list.<br>Events: `changed`<br>Functions: `selectfirst`, `selectlast`, `selectprevious`, `selectnext`<br>Read: `selected.text`, `selected.value` |
-| <img src="docs/wireframes/textfield.svg" width="300" alt="textfield"> | **`textfield`**: one line of input, usually the search field.<br>Events: `changed`, `typingstopped`, `actioned` (Return)<br>Read: `text` |
-| <img src="docs/wireframes/passwordfield.svg" width="300" alt="passwordfield"> | **`passwordfield`**: a text field that hides its input.<br>Read: `text` |
-| <img src="docs/wireframes/textarea.svg" width="300" alt="textarea"> | **`textarea`**: several lines, editable or read-only.<br>Events: `changed`, `typingstopped`<br>Functions: `scrolltop`, `scrollbottom`, `caretstart`, `caretend`<br>Read: `text` |
-| <img src="docs/wireframes/markdownarea.svg" width="300" alt="markdownarea"> | **`markdownarea`**: rendered Markdown with clickable links.<br>Read: `text` |
-| <img src="docs/wireframes/progress.svg" width="300" alt="progress"> | **`progress`**: a bar or ring from 0 to 1.<br>Read: `progress` |
-| <img src="docs/wireframes/imageview.svg" width="300" alt="imageview"> | **`imageview`**: an image file, a file icon or an SF Symbol. No IMAGE type is documented to take a URL; download to the cache and pass a path.<br>Read: `image` |
-| <img src="docs/wireframes/dataview.svg" width="300" alt="dataview"> | **`dataview`**: the list or grid. You design one cell, then give one data object per row. `filterdata` filters it; `changed` fires on selection.<br>Events: `changed`<br>Functions: `filterdata`, `selectfirst`, `selectlast`, `selectprevious`, `selectnext`, `scrolltop`, `scrollbottom`, … ([all](skills/alfred-ui/references/components.md#dataview))<br>Read: `{value:list.selected.title.text}` |
-| <img src="docs/wireframes/webkitview.svg" width="300" alt="webkitview"> | **`webkitview`**: a web page from a URL, a file or HTML. It reports when navigation starts, not when loading ends.<br>Events: `changed`<br>Functions: `back`, `forward`, `reload`<br>Read: `src` |
+<table>
+<tr><td><img src="docs/wireframes/view.svg" width="300" alt="view"></td><td><strong><code>view</code></strong>: a container with a layout, background, corner radius and padding.</td></tr>
+<tr><td><img src="docs/wireframes/label.svg" width="300" alt="label"></td><td><strong><code>label</code></strong>: read-only text.<br>Read: <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/button.svg" width="300" alt="button"></td><td><strong><code>button</code></strong>: text, an image or SF Symbol, or both.<br>Events: <code>actioned</code><br>Read: <code>text</code>, <code>image</code></td></tr>
+<tr><td><img src="docs/wireframes/checkbox.svg" width="300" alt="checkbox"></td><td><strong><code>checkbox</code></strong>: an on/off option.<br>Events: <code>changed</code><br>Read: <code>checked</code>, <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/picker.svg" width="300" alt="picker"></td><td><strong><code>picker</code></strong>: one item from a popup list.<br>Events: <code>changed</code><br>Functions: <code>selectfirst</code>, <code>selectlast</code>, <code>selectprevious</code>, <code>selectnext</code><br>Read: <code>selected.text</code>, <code>selected.value</code></td></tr>
+<tr><td><img src="docs/wireframes/textfield.svg" width="300" alt="textfield"></td><td><strong><code>textfield</code></strong>: one line of input, usually the search field.<br>Events: <code>changed</code>, <code>typingstopped</code>, <code>actioned</code> (Return)<br>Read: <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/passwordfield.svg" width="300" alt="passwordfield"></td><td><strong><code>passwordfield</code></strong>: a text field that hides its input.<br>Read: <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/textarea.svg" width="300" alt="textarea"></td><td><strong><code>textarea</code></strong>: several lines, editable or read-only.<br>Events: <code>changed</code>, <code>typingstopped</code><br>Functions: <code>scrolltop</code>, <code>scrollbottom</code>, <code>caretstart</code>, <code>caretend</code><br>Read: <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/markdownarea.svg" width="300" alt="markdownarea"></td><td><strong><code>markdownarea</code></strong>: rendered Markdown with clickable links.<br>Read: <code>text</code></td></tr>
+<tr><td><img src="docs/wireframes/progress.svg" width="300" alt="progress"></td><td><strong><code>progress</code></strong>: a bar or ring from 0 to 1.<br>Read: <code>progress</code></td></tr>
+<tr><td><img src="docs/wireframes/imageview.svg" width="300" alt="imageview"></td><td><strong><code>imageview</code></strong>: an image file, a file icon or an SF Symbol. No IMAGE type is documented to take a URL; download to the cache and pass a path.<br>Read: <code>image</code></td></tr>
+<tr><td><img src="docs/wireframes/dataview.svg" width="300" alt="dataview"></td><td><strong><code>dataview</code></strong>: the list or grid. You design one cell, then give one data object per row. <code>filterdata</code> filters it; <code>changed</code> fires on selection.<br>Events: <code>changed</code><br>Functions: <code>filterdata</code>, <code>selectfirst</code>, <code>selectlast</code>, <code>selectprevious</code>, <code>selectnext</code>, <code>scrolltop</code>, <code>scrollbottom</code>, … (<a href="skills/alfred-ui/references/components.md#dataview">all</a>)<br>Read: <code>{value:list.selected.title.text}</code></td></tr>
+<tr><td><img src="docs/wireframes/webkitview.svg" width="300" alt="webkitview"></td><td><strong><code>webkitview</code></strong>: a web page from a URL, a file or HTML. It reports when navigation starts, not when loading ends.<br>Events: <code>changed</code><br>Functions: <code>back</code>, <code>forward</code>, <code>reload</code><br>Read: <code>src</code></td></tr>
+</table>
 
 Not drawn: **templates** (a component defined once, reused with parameters) and **`{file:…}`** (split `ui.json` into files).
 
