@@ -1,3 +1,5 @@
+<img src="docs/alfred.png" width="128" alt="Alfred hat and magnifying glass">
+
 # Alfred UI skill
 
 An [Agent Skill](https://agentskills.io) for building **Alfred UI** windows, the Alfred 6 feature that lets a workflow open its own window from a `ui.json` file. Alfred UI is newer than the training data of current models, so without this skill agents guess.
