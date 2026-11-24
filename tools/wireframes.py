@@ -211,8 +211,8 @@ def imageview():
 
 def dataview():
     b = ""
-    rows = (("example.com", "Main site", True), ("docs.example.com", "Documentation", False),
-            ("blog.example.com", "Blog", False))
+    rows = (("Item one", "Selected item", True), ("Item two", "Description", False),
+            ("Item three", "Description", False))
     for i, (title, sub, on) in enumerate(rows):
         y = 18 + i * 56
         if on:

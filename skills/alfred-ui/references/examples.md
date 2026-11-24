@@ -1,6 +1,6 @@
 # Alfred UI examples
 
-Real, public Alfred UI workflows (checked 2026-11-20), grouped by the pattern they show. Find the closest pattern, open its `ui.json` and copy the structure. alfredapp/* repos are first-party and the most reliable. Third-party repos contain some mistakes, listed under Known mistakes.
+Real, public Alfred UI workflows (checked 2026-11-20), grouped by the pattern they show. Find the closest interaction pattern and open its `ui.json` for API usage. Adapt the structure to the requested workflow; example-specific data, styling and architecture are not requirements. alfredapp/* repos are first-party and the most reliable. Third-party repos contain some mistakes, listed under Known mistakes.
 
 Contents:
 - [Pick by pattern](#pick-by-pattern)
@@ -51,17 +51,21 @@ To read a raw file, swap `github.com/<repo>/blob/` for `raw.githubusercontent.co
 
 ## Web page idioms
 
-`webkitview` has no load-finished event and lays a page out at its own width (`components.md`, webkitview). Both are solved inside a local HTML page that the view loads by path:
+Choose how to present web content according to the task:
 
-- **Placeholder until the page loads.** The local page shows the placeholder and puts the site in an iframe; on the iframe's `load` event it fades the iframe in.
-- **Desktop layout in a narrow pane.** Give the iframe a fixed desktop width (e.g. 1440 px) and scale it down with `transform: scale(innerWidth / 1440)`; recompute on `resize`.
-- Sites that send `X-Frame-Options` or CSP `frame-ancestors` refuse to be framed; load those directly with `src`.
+- **Browse a URL.** Set `webkitview.src`; use the view's `back`, `forward` and `reload` functions when navigation controls are needed. The official Gallery browser is an example.
+- **Render generated content.** Set `webkitview.text` for HTML produced by a script, or load a local HTML file with `src`. Use this when native components do not fit the content.
+- **Test a viewport.** Set `constraints.size` and resize the window to suit the requested viewport, as in the official Mobile Web Tester. Do not assume every web view needs a desktop-sized page or a wrapper iframe.
+
+`changed` reports navigation starting, not loading finishing. If you control the HTML, handle DOM load events within that page. Do not assume a remote page can be embedded: its framing policy may forbid it.
 
 ## Design notes
 
-- Give every fact one home. A list row identifies an item; the detail pane adds only what the row doesn't show.
-- Show a field only if it helps the user choose or act.
-- Show exceptions, not defaults: flag a failed or unusual state, and leave the normal state unlabelled.
+These are choices to make for the task, not a required window design:
+
+- A picker may need only a searchable list; a form may need no list at all. Use a detail pane when selected items need additional context.
+- Choose row content, labels and visible states around the user's actions. A compact picker may omit normal states; a monitoring dashboard may need to show them explicitly.
+- Native components suit standard controls; a web view can suit custom content. Keep the user's requested interaction and appearance rather than copying an example's design.
 
 ## Known mistakes in examples
 

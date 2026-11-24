@@ -15,8 +15,8 @@ Alfred UI arrived in Alfred 6.0. It is separate from Alfred 5's Script Filters, 
 
 ## Build steps
 
-1. **Shape.** Decide launch mode: inside Alfred (`launchmode` 0) for a pick-and-go panel, or an external window (1) for a tool that stays open. Sketch the view tree: one `view` per region, `dataview` for every collection, the detail pane fed from the selection. Show each fact once, and only what helps the user choose or act (more in `references/examples.md`, Design notes). Done when every on-screen element maps to a component in `references/components.md` and no value appears twice.
-2. **Find a precedent.** Open the example in `references/examples.md` closest to your pattern and read its `ui.json`. Done when you can name the example and what you copy from it.
+1. **Shape.** Decide launch mode: inside Alfred (`launchmode` 0) for a pick-and-go panel, or an external window (1) for a tool that stays open. Choose components for the requested interaction: for example, a `dataview` for a picker, fields and buttons for a form, or labels and `progress` for a status panel. Add a detail pane only when the task needs one. Done when the view tree supports the requested actions and each component is described in `references/components.md`.
+2. **Find a precedent.** Open the example in `references/examples.md` closest to your pattern and read its `ui.json`. Use it to check API syntax and event wiring; adapt its layout, data model and behaviour to the task.
 3. **Bundle.** Write `<name>.alfredui/ui.json` plus `scripts/` (shebang, `chmod +x`, no extension needed). Paths inside the UI are relative to the bundle root.
 4. **Data in.** Map launch args and workflow variables in `variablesconfig`. Load runtime data from a script on the root view's `preload` or `launched` event (`"async": true`) that prints an `update` action. Done when every `{var:}` you read has a declared source.
 5. **Data out.** Every route that should continue the workflow ends in `finish` with `args` and/or `variables`. Side effects that keep the UI open use JSON commands (`open`, `copy`, `notification`). Route several exits with `finish.variables` plus a Conditional downstream.
@@ -45,6 +45,6 @@ Read only what the current step needs:
 - `references/components.md`: before writing any component, layout, constraint, COLOUR/FONT/IMAGE value or event trigger. It has a table of contents.
 - `references/ui-json.md`: top-level `ui.json` keys, placeholders (`{var:}`, `{file:}`, `{fileraw:}`, `{value:}`, `{data:}`), variables, actions, every JSON action command, pulse (polling), logging and debugging.
 - `references/workflow.md`: the Alfred UI object in `info.plist`, inputs, `finish` outputs, Conditionals, packaging and installing.
-- `references/examples.md`: real, working `ui.json` files on GitHub grouped by pattern (list/picker, list + detail, form, dashboard, chat, confirm/error, live tester), plus idioms and design notes.
+- `references/examples.md`: real, working `ui.json` files on GitHub grouped by pattern (list/picker, list + detail, form, dashboard, chat, confirm/error, live tester), plus reusable interaction patterns and design considerations.
 
 Test snippets live in Alfred with the official Try Alfred UI workflow (keyword `tryaui`). Doc root: https://www.alfredapp.com/help/alfredui/
